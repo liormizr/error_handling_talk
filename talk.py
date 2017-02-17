@@ -7,6 +7,8 @@ Usage:
   talk.py start
   talk.py try_except_syntax
   talk.py try_except_log
+  talk.py try_except_hell
+  talk.py try_except_with_context_manager
 
 Options:
   --version     Show talk version.
@@ -35,6 +37,7 @@ def _run_suite(suite_name, suite):
 
 
 def _run_all():
+    # import ipdb; ipdb.set_trace()
     for example_suite_name, suite in talk_map.items():
         _run_suite(example_suite_name, suite)
 
@@ -44,6 +47,7 @@ if __name__ == '__main__':
     try:
         if talk_options['start']:
             _run_all()
+            sys.exit(0)
         for suite_name, show in talk_options.items():
             if show:
                 _run_suite(suite_name, talk_map[suite_name])
