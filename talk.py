@@ -19,27 +19,48 @@ import inspect
 
 from docopt import docopt
 
+from IPython import embed
+from IPython.core.autocall import ExitAutocall
+from IPython.terminal.ipapp import load_default_config
+
 from error_handling_talk import talk_map
+
+_ipython_config = load_default_config()
+_ipython_config.InteractiveShellEmbed = _ipython_config.TerminalInteractiveShell
+_ipython_config.TerminalInteractiveShell.banner1 = ''
+_ipython_config.TerminalInteractiveShell.banner2 = '\x1b[2J\x1b[H'
+
+
+def _run_all():
+    for example_suite_name, suite in talk_map.items():
+        _run_suite(example_suite_name, suite)
 
 
 def _run_suite(suite_name, suite):
     for index, example in enumerate(suite['examples']):
-        sys.stdout.write('\x1b[2J\x1b[H')
-        print('{}:'.format(suite_name.title()))
-        print('Sources:')
-        print('{}'.format(suite['sources']))
-        print()
-        print('{suite} - {index}. '.format(suite=suite_name, index=index + 1))
-        print(inspect.getsource(example))
-        input('What will happen? >> {0.__name__}()'.format(example))
-        example()
-        input('Next?...')
+        Next = ExitAutocall()
+        globals().update({example.__name__: example})
+        embed(
+            header=_create_header(suite_name, suite, index, example),
+            config=_ipython_config)
 
 
-def _run_all():
-    # import ipdb; ipdb.set_trace()
-    for example_suite_name, suite in talk_map.items():
-        _run_suite(example_suite_name, suite)
+def _create_header(suite_name, suite, index, example):
+    return '\n'.join((
+        '| {}:'.format(suite_name.title()),
+        '| Sources: {}'.format(suite['sources']),
+        '|',
+        '| {suite} - {index}. '.format(suite=suite_name, index=index + 1),
+        _code_example(example),
+        "| What will happen? >> {0.__name__}() Prease 'Next' to go to the next example".format(example),
+    ))
+
+
+def _code_example(example):
+    return '\n'.join(
+        '|    >> ' + line
+        for line in inspect.getsource(example).splitlines()
+    )
 
 
 if __name__ == '__main__':
@@ -53,4 +74,4 @@ if __name__ == '__main__':
                 _run_suite(suite_name, talk_map[suite_name])
     except KeyboardInterrupt:
         print()
-        print('Goodbye')
+    print('Goodbye')
