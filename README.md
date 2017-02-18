@@ -8,16 +8,12 @@ Setup
 
 To install Requests, simply:
 
-.. code-block:: bash
-
     $ pip install -r requests.txt
 
 Use
 ---
 
 To Start ony run:
-
-.. code-block:: bash
 
     $ python talk.py --help
 
