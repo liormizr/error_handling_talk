@@ -13,7 +13,7 @@ To install Requests, simply:
 Use
 ---
 
-To Start ony run:
+To Start run:
 
     $ python talk.py --help
 
