@@ -10,6 +10,8 @@ logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 @include
 def suppress_example():
+    from contextlib import suppress
+
     with suppress(ZeroDivisionError):
         1 / 0
 
@@ -32,6 +34,8 @@ def suppress_example():
 
 @include
 def context_manager_example():
+    from contextlib import suppress
+
     class ErrorMessage(suppress):
         def __init__(self, *exceptions, logger=logging.getLogger()):
             self.logger = logger

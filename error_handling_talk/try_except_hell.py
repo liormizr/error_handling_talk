@@ -44,6 +44,7 @@ def example3():
     def _hell():
         try:
             print('Doing work')
+            1 / 0
             return 0
         except ZeroDivisionError:
             print('will handle Errors')
@@ -72,3 +73,19 @@ def example4():
         except:
             return 5
     print(_hell())
+
+
+@include
+def example5():
+    def _hell():
+        try:
+            print('Doing work')
+            return 0
+        except ZeroDivisionError:
+            print('will handle Errors')
+            return 1
+        else:
+            print('will handle success')
+            return 2
+    print(_hell())
+
