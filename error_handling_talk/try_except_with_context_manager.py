@@ -1,11 +1,7 @@
 """ https://docs.python.org/3/library/contextlib.html """
-import sys
 import logging
-from contextlib import suppress
 
 from . import include
-
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
 @include

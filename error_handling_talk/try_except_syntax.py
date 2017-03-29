@@ -1,17 +1,22 @@
 """ https://docs.python.org/3.6/tutorial/errors.html """
+import sys
 from . import include
 
 
 @include
 def pass_example():
     try:
-        print('Doing work')
+        sys.stdout.write('Fat ')
+        sys.stdout.flush()
     except:
-        print('will handle Errors')
+        sys.stdout.write('monkey ')
+        sys.stdout.flush()
     else:
-        print('will handle success')
+        sys.stdout.write('chicken ')
+        sys.stdout.flush()
     finally:
-        print('will run in the end')
+        sys.stdout.write('lips ')
+        sys.stdout.flush()
 
 
 @include

@@ -6,16 +6,12 @@ from . import include
 def example1():
     def _hell():
         try:
-            print('Doing work')
             return 0
         except:
-            print('will handle Errors')
             return 1
         else:
-            print('will handle success')
             return 2
         finally:
-            print('will run in the end')
             return 3
     print(_hell())
 
@@ -24,17 +20,13 @@ def example1():
 def example2():
     def _hell():
         try:
-            print('Doing work')
             1 / 0
             return 0
         except ZeroDivisionError:
-            print('will handle Errors')
             return 1
         else:
-            print('will handle success')
             return 2
         finally:
-            print('will run in the end')
             return 3
     print(_hell())
 
@@ -43,14 +35,11 @@ def example2():
 def example3():
     def _hell():
         try:
-            print('Doing work')
             1 / 0
             return 0
         except ZeroDivisionError:
-            print('will handle Errors')
             return 1
         else:
-            print('will handle success')
             return 2
     print(_hell())
 
@@ -59,7 +48,6 @@ def example3():
 def example4():
     def _hell():
         try:
-            print('Doing work')
             1 / 0
             return 0
         except ValueError:
@@ -79,13 +67,10 @@ def example4():
 def example5():
     def _hell():
         try:
-            print('Doing work')
             return 0
         except ZeroDivisionError:
-            print('will handle Errors')
             return 1
         else:
-            print('will handle success')
             return 2
     print(_hell())
 

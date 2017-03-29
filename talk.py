@@ -15,6 +15,7 @@ Options:
   -h --help     Show talk menu and examples.
 """
 import sys
+import logging
 import inspect
 
 from docopt import docopt
@@ -29,6 +30,8 @@ _ipython_config = load_default_config()
 _ipython_config.InteractiveShellEmbed = _ipython_config.TerminalInteractiveShell
 _ipython_config.TerminalInteractiveShell.banner1 = ''
 _ipython_config.TerminalInteractiveShell.banner2 = '\x1b[2J\x1b[H'
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
 def _run_all():

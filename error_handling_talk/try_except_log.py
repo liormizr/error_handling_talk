@@ -1,10 +1,8 @@
 """ https://docs.python.org/3.6/library/logging.html """
-import logging
 import sys
+import logging
 
 from . import include
-
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
 @include
