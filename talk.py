@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Error Handling Hints & Tricks
 
@@ -75,6 +76,6 @@ if __name__ == '__main__':
         for suite_name, show in talk_options.items():
             if show:
                 _run_suite(suite_name, talk_map[suite_name])
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, SystemExit):
         print()
     print('Goodbye')
