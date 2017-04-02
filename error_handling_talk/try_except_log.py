@@ -57,23 +57,6 @@ def real_world_good_example():
 
 
 @include
-def exc_scope():
-    print(sys.exc_info(), '0'*30)
-    try:
-        print(sys.exc_info(), '1'*30)
-        1 / 0
-    except ZeroDivisionError:
-        print(sys.exc_info(), '2'*30)
-        try:
-            print(sys.exc_info(), '3'*30)
-            send_message_to_somebody()
-        except NameError:
-            print(sys.exc_info(), '4'*30)
-        print(sys.exc_info(), '5'*30)
-    print(sys.exc_info(), '6'*30)
-
-
-@include
 def python3_example():
     def foo():
         try:
