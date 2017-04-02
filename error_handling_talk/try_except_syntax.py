@@ -42,6 +42,12 @@ def error_example2():
 
 @include
 def exc_scope():
+    """
+    sys.exc_info: 
+        Return information about the most recent exception caught by an except
+        clause in the current stack frame or in an older stack frame.
+    exc_info() -> (exc_type, exc_val, exc_tb)
+    """
     print(sys.exc_info(), '0'*30)
     try:
         print(sys.exc_info(), '1'*30)

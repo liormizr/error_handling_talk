@@ -1,4 +1,4 @@
-""" Life - working a lot with ty except in Python """
+""" Life - working a lot with try except in Python """
 from . import include
 
 
