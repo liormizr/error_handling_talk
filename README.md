@@ -1,7 +1,7 @@
 # error_handling_talk
 Error Handling tricks and tips in Python
 
-supports Python 3.3–3.7
+supports Python 3.3+
 
 Setup
 -----
