@@ -25,7 +25,7 @@ def error_example1():
     try:
         1 / 0
     except (ZeroDivisionError, ValueError):
-        print('handle ZeroDivisionError errors')
+        print('handle ZeroDivisionError')
     except:
         print('handle any Exception')
 
@@ -37,7 +37,7 @@ def error_example2():
     except Exception:
         print('handle any Exception')
     except ZeroDivisionError:
-        print('handle ZeroDivisionError errors')
+        print('handle ZeroDivisionError')
 
 
 @include
