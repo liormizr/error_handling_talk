@@ -48,16 +48,16 @@ def exc_scope():
         clause in the current stack frame or in an older stack frame.
     exc_info() -> (exc_type, exc_val, exc_tb)
     """
-    print(sys.exc_info(), '0'*30)
+    print('1.', sys.exc_info())
     try:
-        print(sys.exc_info(), '1'*30)
+        print('2.', sys.exc_info())
         1 / 0
     except ZeroDivisionError:
-        print(sys.exc_info(), '2'*30)
+        print('3.', sys.exc_info())
         try:
-            print(sys.exc_info(), '3'*30)
+            print('4.', sys.exc_info())
             send_message_to_somebody()
         except NameError:
-            print(sys.exc_info(), '4'*30)
-        print(sys.exc_info(), '5'*30)
-    print(sys.exc_info(), '6'*30)
+            print('5.', sys.exc_info())
+        print('6.', sys.exc_info())
+    print('7.', sys.exc_info())
